@@ -1,7 +1,7 @@
 <h1>Projeto Alura Food com Docker</h1>
 
 <h2>🔖 Sobre</h2>
-<h3>Projeto do Curso de Microsserviços da Alura, com uso de serviço de mensageria
+<h3>Projeto do Curso de Microsserviços da Alura, com uso de mensageria
 com o RabbitMQ, alterado para utilização de Docker.</h3>
 <p>Com o intuído de reforçar os conceitos de programação em arquitetura de microsserviços e ter contato com outras 
 tecnologias, este projeto foi desenvolvido com base no curso de Microsserviços da Alura, o qual fazia uso de 

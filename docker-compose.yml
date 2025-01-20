@@ -1,0 +1,37 @@
+version: "3.6"
+
+services:
+    database:
+        image: mysql:8.0.29
+        container_name: database
+        restart: always
+        ports:
+            - 3306:3306
+        volumes:
+            - ./mysql/dados:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=1223456
+            - MYSQL_ROOT_HOST=%
+        networks:
+            - vendas-net
+
+    rabbitmq:
+        image: rabbitmq:3.10-management
+        container_name: rabbitmq
+        restart: always
+        ports:
+            - 5672:5672
+            - 15672:15672
+        volumes:
+            - ./rabbit/dados:/var/lib/rabbitmq/
+        depends_on:
+          - server
+        environment:
+            - RABBITMQ_DEFAULT_USER=admin
+            - RABBITMQ_DEFAULT_PASS=1223456
+        networks:
+            - vendas-net
+
+networks:
+    vendas-net:
+        driver: bridge
