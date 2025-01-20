@@ -43,6 +43,25 @@ services:
         networks:
             - vendas-net
 
+    app-pedidos:
+        container_name: app-pedidos
+        build:
+            context: ./pedidos
+            dockerfile: Dockerfile
+        ports:
+            - 8080:8080
+        depends_on:
+            - server
+            - database
+            - rabbitmq
+        environment:
+            - SPRING_DATASOURCE_URL=jdbc:mysql://database:3306/db-pedidos?createDatabaseIfNotExist=true
+            - SPRING_DATASOURCE_USERNAME=root
+            - SPRING_DATASOURCE_PASSWORD=1223456
+            - EUREKA.CLIENT.SERVICEURL.DEFAULTZONE=http://server:8081/eureca/
+        networks:
+            - vendas-net
+
     rabbitmq:
         image: rabbitmq:3.10-management
         container_name: rabbitmq
