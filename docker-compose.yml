@@ -62,6 +62,29 @@ services:
         networks:
             - vendas-net
 
+    app-pagamentos:
+        container_name: app-pagamentos
+        build:
+            context: ./pagamentos
+            dockerfile: Dockerfile
+        ports:
+            - 8084:8084
+        depends_on:
+            - server
+            - database
+            - rabbitmq
+        environment:
+            - SPRING_DATASOURCE_URL=jdbc:mysql://database:3306/db-pagamentos?createDatabaseIfNotExist=true
+            - SPRING_DATASOURCE_USERNAME=root
+            - SPRING_DATASOURCE_PASSWORD=1223456
+            - SPRING.RABBITMQ.HOST=rabbitmq
+            - SPRING.RABBITMQ.PORT=5672
+            - SPRING.RABBITMQ.USERNAME=admin
+            - SPRING.RABBITMQ.PASSWORD=1223456
+            - EUREKA.CLIENT.SERVICEURL.DEFAULTZONE=http://server:8081/eureca/
+        networks:
+            - vendas-net
+
     rabbitmq:
         image: rabbitmq:3.10-management
         container_name: rabbitmq
