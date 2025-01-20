@@ -7,7 +7,7 @@ com o RabbitMQ, alterado para utilização de Docker.</h3>
 tecnologias, este projeto foi desenvolvido com base no curso de Microsserviços da Alura, o qual fazia uso de 
 mensageria assíncrona com o RabbitMQ.</p>
 
-<p>Neste contexto, optei por evoluir o projeto, para tornar seu processo de deploy e execução mais fácil. Para tal
+<p>Neste contexto, optei por evoluir o projeto, para tornar seu processo de deploy e execução mais fácil. Para tal,
 criei os Dokerfile dos projetos, bem como o docker-compose para orquestrar a execução de todos os microsserviços, 
 de forma a atender os pré-requisitos de cada um deles.</p>
 
