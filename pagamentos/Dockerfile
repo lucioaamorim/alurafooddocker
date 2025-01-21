@@ -1,4 +1,4 @@
-FROM maven:3.8.8-eclipse-temurin-17 AS builder
+FROM maven:3-openjdk-17-slim as builder
 
 # Define o diretório de trabalho
 WORKDIR /builder
@@ -15,7 +15,7 @@ FROM openjdk:17-jdk-alpine
 COPY --from=builder /builder/target/*.jar /app.jar
 
 # Expose the application port
-EXPOSE 8084
+#EXPOSE 8081
 
 # Run the App
 ENTRYPOINT ["java", "-jar", "app.jar"]

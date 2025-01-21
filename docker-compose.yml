@@ -60,8 +60,6 @@ services:
         build:
             context: ./pagamentos
             dockerfile: Dockerfile
-        #        ports:
-        #            - 8084:8084
         depends_on:
             - server
             - database
@@ -104,8 +102,6 @@ services:
         build:
             context: ./avaliacao
             dockerfile: Dockerfile
-        #        ports:
-        #            - 8084:8084
         depends_on:
             - server
             - rabbitmq
@@ -117,7 +113,6 @@ services:
             - EUREKA.CLIENT.SERVICEURL.DEFAULTZONE=http://server:8081/eureka/
         networks:
             - vendas-net
-
 
 networks:
     vendas-net:
